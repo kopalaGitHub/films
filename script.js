@@ -1,45 +1,20 @@
-const container = document.getElementById("container");
-const movies = [
-  { title: "Office Uprising", img: "./images/img-1.jpeg" },
-  { title: "klaus", img: "./images/img-2.jpg" },
-  { title: "mausi", img: "./images/img-3.jpg" },
-  { title: "miki", img: "./images/img-4.png" },
-  { title: "macBook is cool", img: "./images/img-5.jpg" },
-  { title: "windows is bad", img: "./images/img-6.jpeg" },
-];
-const titles = [
-  "Office Uprising",
-  "klaus",
-  "mausi",
-  "miki",
-  "macBook is cool",
-  "windows is bad",
-];
-const images = [
-  "./images/img-1.jpeg",
-  "./images/img-2.jpg",
-  "./images/img-3.jpg",
-  "./images/img-4.png",
-  "./images/img-5.jpg",
-  "./images/img-6.jpeg",
-];
-function itemHtml(number) {
-  let itemEl = document.createElement("div");
-  itemEl.classList.add("col-sm");
-  itemEl.innerHTML = `
+function itemHtml(item) {
+  let html = `
             <div class="card text-light" style="background-color: #1a1a1a">
               <img
                 class="card-img-top"
-                src="${movies[number].img}"
+                src="${item.img}"
                 alt="Card image cap"
               />
               <div class="card-body">
                 <div class="d-flex align-items-center">
                   <img src="./images/star-svgrepo-com.svg" alt="star" />
-                  <p class="m-0">5.1</p>
+                  <p class="m-0">${item.rating}</p>
                 </div>
                 <h6 class="card-title" style="height: 60px">
-                 ${movies[number].title}
+                  <a  href="http://127.0.0.1:5500/item.html?id=${item.id}" class ="text-decoration-none text-light"> 
+                    ${item.title}
+                  </a>
                 </h6>
                 <a
                   href="#"
@@ -60,11 +35,18 @@ function itemHtml(number) {
             </div>
 
   `;
-  container.appendChild(itemEl);
+  return html;
 }
-function drowItems() {
-  for (let i = 0; i < 6; i++) {
-    itemHtml(i);
+
+function drowItem() {
+  const container = document.getElementById("movie-list");
+  for (var key in movies) {
+    let html = itemHtml(movies[key]);
+    let itemEl = document.createElement("div");
+    itemEl.classList.add("col-sm");
+    itemEl.innerHTML = html;
+    container.appendChild(itemEl);
+    console.log(html);
   }
 }
-drowItems();
+drowItem();
