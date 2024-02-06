@@ -6,6 +6,16 @@ function itemHtml(item) {
                 src="${item.img}"
                 alt="Card image cap"
               />
+              <button
+              style="width: 40px; background-color: #282828"
+              type="button"
+              class="btn rounded-circle"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              data-whatever="@fat"
+            >
+              <img src="./images/icons-edit.svg" alt="" />
+            </button>
               <div class="card-body">
                 <div class="d-flex align-items-center">
                   <img src="./images/star-svgrepo-com.svg" alt="star" />
@@ -16,14 +26,16 @@ function itemHtml(item) {
                     ${item.title}
                   </a>
                 </h6>
-                <a
-                  href="#"
-                  class="btn m-auto w-100"
-                  style="background-color: #2c2c2c; color: #5497e5"
-                >
-                  <img src="./images/plus-large-svgrepo-com.svg" alt="" />
-                  <span class="fw-bold">watchlist</span>
-                </a>
+                <div id="button_container">
+                  <a
+                    href="#"
+                    class="btn m-auto w-100 watchlist"
+                    style="background-color: #2c2c2c; color: #5497e5"
+                  >
+                    <img src="./images/plus-large-svgrepo-com.svg" alt="" />
+                    <span  class="fw-bold">watchlist</span>
+                  </a>
+                </div>
                 <a href="#" class="btn m-auto w-100 text-light">
                   <img
                     src="./images/media-playback-start-svgrepo-com.svg"
@@ -46,7 +58,6 @@ function drowItem() {
     itemEl.classList.add("col-sm");
     itemEl.innerHTML = html;
     container.appendChild(itemEl);
-    console.log(html);
   }
 }
 drowItem();
