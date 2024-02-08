@@ -36,7 +36,7 @@ function editHtml(item) {
                 <label for="message-text" class="col-form-label"
                   >Description:</label
                 >
-                <textarea class="form-control" id="message-text" placeholder="${item.description}"></textarea>
+                <textarea class="form-control" id="message-text${item.id}" placeholder="${item.description}"></textarea>
               </div>
             </form>
           </div>
@@ -54,8 +54,11 @@ function editHtml(item) {
 }
 
 function nameChange(id) {
-  let name = document.getElementById("recipient-name" + id).value;
+  let name = document.getElementById("message-text" + id).value;
+  let description = document.getElementById("recipient-name" + id).value;
   movies[id - 1].title = name;
+  movies[id - 1].description = description;
+
   drowItem();
 }
 function drowEditItem() {
