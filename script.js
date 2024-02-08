@@ -1,21 +1,21 @@
 function itemHtml(item) {
   let html = `
-            <div class="card text-light" style="background-color: #1a1a1a">
+            <div id="card" class="card text-light" style="background-color: #1a1a1a">
               <img
                 class="card-img-top"
                 src="${item.img}"
                 alt="Card image cap"
               />
               <button
-              style="width: 40px; background-color: #282828"
-              type="button"
-              class="btn rounded-circle"
-              data-toggle="modal"
-              data-target="#exampleModal"
-              data-whatever="@fat"
-            >
-              <img src="./images/icons-edit.svg" alt="" />
-            </button>
+                style="width: 40px; background-color: #282828"
+                type="button"
+                class="btn rounded-circle"
+                data-toggle="modal"
+                data-target="#exampleModal${item.id}"
+                data-whatever="@fat"
+              >
+                <img src="./images/icons-edit.svg" alt="" />
+              </button>
               <div class="card-body">
                 <div class="d-flex align-items-center">
                   <img src="./images/star-svgrepo-com.svg" alt="star" />
@@ -52,6 +52,7 @@ function itemHtml(item) {
 
 function drowItem() {
   const container = document.getElementById("movie-list");
+  container.innerHTML = "";
   for (var key in movies) {
     let html = itemHtml(movies[key]);
     let itemEl = document.createElement("div");
