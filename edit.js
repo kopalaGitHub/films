@@ -30,13 +30,13 @@ function editHtml(item) {
                 <label for="recipient-name${item.id}" class="col-form-label">
                 Movie Name:
                 </label>
-                <input type="text" placeholder="${item.title}" class="form-control" autocomplete="off" id="recipient-name${item.id}" />
+                <input type="text" value="${item.title}" class="form-control" autocomplete="off" id="recipient-name${item.id}" />
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label"
                   >Description:</label
                 >
-                <textarea class="form-control" id="message-text${item.id}" placeholder="${item.description}"></textarea>
+                <textarea class="form-control" id="message-text" >${item.description}</textarea>
               </div>
             </form>
           </div>
@@ -54,7 +54,7 @@ function editHtml(item) {
 }
 
 function nameChange(id) {
-  let name = document.getElementById("message-text" + id).value;
+  let name = document.getElementById("recipient-name" + id).value;
   movies[id - 1].title = name;
   drowItem();
 }
