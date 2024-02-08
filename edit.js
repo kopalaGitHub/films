@@ -30,13 +30,13 @@ function editHtml(item) {
                 <label for="recipient-name${item.id}" class="col-form-label">
                 Movie Name:
                 </label>
-                <input type="text" class="form-control" autocomplete="off" id="recipient-name${item.id}" />
+                <input type="text" placeholder="${item.title}" class="form-control" autocomplete="off" id="recipient-name${item.id}" />
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label"
                   >Description:</label
                 >
-                <textarea class="form-control" id="message-text"></textarea>
+                <textarea class="form-control" id="message-text" placeholder="${item.description}"></textarea>
               </div>
             </form>
           </div>
