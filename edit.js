@@ -55,10 +55,7 @@ function editHtml(item) {
 
 function nameChange(id) {
   let name = document.getElementById("message-text" + id).value;
-  let description = document.getElementById("recipient-name" + id).value;
   movies[id - 1].title = name;
-  movies[id - 1].description = description;
-
   drowItem();
 }
 function drowEditItem() {
