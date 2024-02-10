@@ -41,7 +41,7 @@ function editHtml(item) {
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeClickBtn(${item.id})" >
               Close
             </button>
             <button type="button" class="btn btn-primary" onclick="nameChange(${item.id})">Save</button>
@@ -52,7 +52,10 @@ function editHtml(item) {
     `;
   return html;
 }
-
+function closeClickBtn(id) {
+  let name = document.getElementById("recipient-name" + id);
+  name.value = movies[id - 1].title;
+}
 function nameChange(id) {
   let name = document.getElementById("recipient-name" + id).value;
   movies[id - 1].title = name;
