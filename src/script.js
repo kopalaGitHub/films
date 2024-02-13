@@ -1,7 +1,8 @@
 function itemHtml(item) {
   let html = `
-            <div id="card" class="card text-light" style="background-color: #1a1a1a">
+            <div id="card${item.id}" class="card text-light" style="background-color: #1a1a1a;  max-width:250px">
               <img
+                style="max-height:250px;"
                 class="card-img-top"
                 src="${item.img}"
                 alt="Card image cap"
@@ -12,9 +13,9 @@ function itemHtml(item) {
                 class="btn rounded-circle"
                 data-toggle="modal"
                 data-target="#exampleModal${item.id}"
-                data-whatever="@fat"
+                data-whatever="@fat"  
               >
-                <img src="./images/icons-edit.svg" alt="" />
+                <img src="./images/icons-edit.svg"  alt="" />
               </button>
               <div class="card-body">
                 <div class="d-flex align-items-center">

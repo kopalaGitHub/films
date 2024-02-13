@@ -41,6 +41,7 @@ function editHtml(item) {
             </form>
           </div>
           <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="cut(${item.id})" data-dismiss="modal">delete</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeClickBtn(${item.id})" >
               Close
             </button>
@@ -52,15 +53,7 @@ function editHtml(item) {
     `;
   return html;
 }
-function closeClickBtn(id) {
-  let name = document.getElementById("recipient-name" + id);
-  name.value = movies[id - 1].title;
-}
-function nameChange(id) {
-  let name = document.getElementById("recipient-name" + id).value;
-  movies[id - 1].title = name;
-  drowItem();
-}
+
 function drowEditItem() {
   const container = document.getElementById("editItem");
   for (var key in movies) {
@@ -69,5 +62,14 @@ function drowEditItem() {
     itemEl.innerHTML = html;
     container.appendChild(itemEl);
   }
+}
+function closeClickBtn(id) {
+  let name = document.getElementById("recipient-name" + id);
+  name.value = movies[id - 1].title;
+}
+function nameChange(id) {
+  let name = document.getElementById("recipient-name" + id).value;
+  movies[id - 1].title = name;
+  drowItem();
 }
 drowEditItem();
