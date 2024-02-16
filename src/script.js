@@ -60,6 +60,7 @@ function drowItem() {
     itemEl.classList.add("col-sm");
     itemEl.innerHTML = html;
     container.appendChild(itemEl);
+    console.log(html);
   }
 }
 drowItem();
