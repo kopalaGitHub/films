@@ -69,7 +69,9 @@ function closeClickBtn(id) {
 }
 function nameChange(id) {
   let name = document.getElementById("recipient-name" + id).value;
+  const element = document.getElementById("title" + id);
   movies[id - 1].title = name;
-  drowItem();
+  element.innerHTML = movies[id - 1].title;
 }
+
 drowEditItem();

@@ -23,7 +23,7 @@ function itemHtml(item) {
                   <p class="m-0">${item.rating}</p>
                 </div>
                 <h6 class="card-title" style="height: 60px">
-                  <a  href="http://127.0.0.1:5500/item.html?id=${item.id}" class ="text-decoration-none text-light"> 
+                  <a  href="http://127.0.0.1:5500/item.html?id=${item.id}" id="title${item.id}" class ="text-decoration-none text-light"> 
                     ${item.title}
                   </a>
                 </h6>

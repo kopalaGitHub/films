@@ -101,34 +101,5 @@ function addNewMovie() {
   drowEditItem();
   let popUp = document.getElementById("addMovies");
   popUp.classList.remove("show", "d-block");
-  console.log(movies);
 }
 drowAddButton();
-
-// function drowAddButton() {
-//   const addButton = document.getElementById("addItemBtn");
-//   let itemEl = document.createElement("div");
-//   itemEl.innerHTML = addMovieBtn(movies[movies.length - 1]);
-//   addButton.appendChild(itemEl);
-//   drowAddContent();
-// }
-// function drowAddContent() {
-//   const addContent = document.getElementById("addItemContent");
-//   let itemEl = document.createElement("div");
-//   itemEl.innerHTML = addMovieEdit(movies[movies.length - 1]);
-//   addContent.innerHTML = "";
-//   addContent.appendChild(itemEl);
-// }
-// function addNewMovie() {
-//   let newTitle = document.getElementById("newMovieTitle").value;
-//   movies.push({
-//     id: movies[movies.length - 1].id + 1,
-//     title: newTitle,
-//     img: "./images/img-6.jpeg",
-//     rating: 8.8,
-//     description: "",
-//   });
-//   drowItem();
-//   console.log(movies[movies.length - 1].id);
-// }
-// drowAddButton();
