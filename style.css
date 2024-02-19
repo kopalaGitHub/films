@@ -23,3 +23,8 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.main-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+}

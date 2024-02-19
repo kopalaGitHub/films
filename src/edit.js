@@ -2,7 +2,7 @@ function editHtml(item) {
   let html = `
     <div
       class="modal fade"
-      id="exampleModal${item.id}"
+      id="movie-form-${item.id}"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -41,7 +41,7 @@ function editHtml(item) {
             </form>
           </div>
           <div class="modal-footer">
-          <button type="button" class="btn btn-danger" onclick="cut(${item.id})" data-dismiss="modal">delete</button>
+          <button type="button" class="btn btn-danger" onclick="deleteMovie(${item.id})" data-dismiss="modal">delete</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeClickBtn(${item.id})" >
               Close
             </button>
@@ -54,24 +54,4 @@ function editHtml(item) {
   return html;
 }
 
-function drowEditItem() {
-  const container = document.getElementById("editItem");
-  for (var key in movies) {
-    let html = editHtml(movies[key]);
-    let itemEl = document.createElement("div");
-    itemEl.innerHTML = html;
-    container.appendChild(itemEl);
-  }
-}
-function closeClickBtn(id) {
-  let name = document.getElementById("recipient-name" + id);
-  name.value = movies[id - 1].title;
-}
-function nameChange(id) {
-  let name = document.getElementById("recipient-name" + id).value;
-  const element = document.getElementById("title" + id);
-  movies[id - 1].title = name;
-  element.innerHTML = movies[id - 1].title;
-}
-
-drowEditItem();
+// drowEditItem();

@@ -1,4 +1,4 @@
-function addMovieBtn(item) {
+function addMovieBtn() {
   let html = `
     <div
         class="position-absolute cursor-pointer"
