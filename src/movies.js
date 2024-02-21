@@ -8,12 +8,14 @@ function movieItemHtml(item) {
                 alt="Card image cap"
               />
               <button
+                id="formBtn"  
                 style="width: 40px; background-color: #282828"
                 type="button"
                 class="btn rounded-circle"
                 data-toggle="modal"
                 data-target="#movie-form-${item.id}"
                 data-whatever="@fat"  
+                onclick="movieEditForm(${item.id})"
               >
                 <img src="./images/icons-edit.svg"  alt="" />
               </button>
@@ -63,14 +65,36 @@ function creatMovieItems() {
     itemEl.classList.add("col-lg-2", "col-md-6");
     itemEl.innerHTML = html;
     container.appendChild(itemEl);
-    movieEditForm(parseInt(key) + 1);
   }
 }
+function getItemIndexById(id) {
+  let index = null;
+  for (var key in movies) {
+    if (movies[key].id == id) {
+      index = key;
+    }
+  }
+  if (index == null) {
+    return false;
+  } else {
+    return index;
+  }
+}
+
 // edit js
 function movieEditForm(id) {
-  const html = editHtml(movies[id - 1]);
+  const html = editHtml(movies[id]);
   document.getElementById("editItem").innerHTML += html;
+  document.body.classList.add("modal-open");
+  const random = document.getElementById("formBtn");
+  random.removeAttribute("onclick");
+  console.log(html);
 }
+// function movieEditForm(id) {
+//   const index = getItemIndexById(id);
+//   const html = editHtml(movies[index]);
+//   document.getElementById("editItem").innerHTML += html;
+// }
 
 // function drowEditItem() {
 //   const container = document.getElementById("editItem");
@@ -91,7 +115,7 @@ function movieEditForm(id) {
 //   movies[id - 1].title = name;
 //   element.innerHTML = movies[id - 1].title;
 // }
-// delete function
+// drowEditItem();
 function deleteMovie(id) {
   const element = document.getElementById("card-" + id);
   element.remove();
