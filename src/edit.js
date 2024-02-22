@@ -45,7 +45,7 @@ function editHtml(item) {
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeClickBtn(${item.id})" >
               Close
             </button>
-            <button type="button" class="btn btn-primary" onclick="nameChange(${item.id})">Save</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="nameChange(${item.id})">Save</button>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ function movieItemHtml(item) {
                 alt="Card image cap"
               />
               <button
-                id="formBtn"  
+                id="formBtn${item.id}"  
                 style="width: 40px; background-color: #282828"
                 type="button"
                 class="btn rounded-circle"
@@ -61,10 +61,11 @@ function creatMovieItems() {
   for (var key in movies) {
     let html = movieItemHtml(movies[key]);
     let itemEl = document.createElement("div");
-    itemEl.setAttribute("id", "card-" + key);
+    itemEl.setAttribute("id", "card-" + movies[key].id);
     itemEl.classList.add("col-lg-2", "col-md-6");
     itemEl.innerHTML = html;
     container.appendChild(itemEl);
+    console.log(key);
   }
 }
 function getItemIndexById(id) {
@@ -82,44 +83,35 @@ function getItemIndexById(id) {
 }
 
 // edit js
-function movieEditForm(id) {
-  const html = editHtml(movies[id]);
-  document.getElementById("editItem").innerHTML += html;
-  document.body.classList.add("modal-open");
-  const random = document.getElementById("formBtn");
-  random.removeAttribute("onclick");
-  console.log(html);
-}
-// function movieEditForm(id) {
-//   const index = getItemIndexById(id);
-//   const html = editHtml(movies[index]);
-//   document.getElementById("editItem").innerHTML += html;
-// }
 
-// function drowEditItem() {
-//   const container = document.getElementById("editItem");
-//   for (var key in movies) {
-//     let html = editHtml(movies[key]);
-//     let itemEl = document.createElement("div");
-//     itemEl.innerHTML = html;
-//     container.appendChild(itemEl);
-//   }
-// }
-// function closeClickBtn(id) {
-//   let name = document.getElementById("recipient-name" + id);
-//   name.value = movies[id - 1].title;
-// }
-// function nameChange(id) {
-//   let name = document.getElementById("recipient-name" + id).value;
-//   const element = document.getElementById("title" + id);
-//   movies[id - 1].title = name;
-//   element.innerHTML = movies[id - 1].title;
-// }
-// drowEditItem();
+function movieEditForm(id) {
+  const index = getItemIndexById(id);
+  const html = editHtml(movies[index]);
+  document.getElementById("editItem").innerHTML += html;
+}
+
+function closeClickBtn(id) {
+  const index = getItemIndexById(id);
+  let name = document.getElementById("recipient-name" + movies[index].id);
+  name.value = movies[index].title;
+  console.log(name);
+  document.getElementById("movie-form-" + movies[index].id).remove();
+}
+function nameChange(id) {
+  const index = getItemIndexById(id);
+  let name = document.getElementById("recipient-name" + movies[index].id).value;
+  const element = document.getElementById("title" + movies[index].id);
+  movies[index].title = name;
+  element.innerHTML = movies[index].title;
+  document.getElementById("movie-form-" + movies[index].id).remove();
+  console.log(index);
+}
+
 function deleteMovie(id) {
+  const index = getItemIndexById(id);
   const element = document.getElementById("card-" + id);
   element.remove();
-  movies.splice(id - 1, 1);
+  movies.splice(index, 1);
 }
 // app start
 creatMovieItems();
